@@ -49,5 +49,28 @@ public class TemplateMethodTest {
 
     }
 
+    @Test
+    void templateMothodV2() {
+        AbstractTemplate template1 = new AbstractTemplate() { // 함수를 선언하면서 바로 구현 가능
+
+            @Override
+            protected void call() {
+                log.info("비지니스 로직1 실행");
+            }
+        };
+        template1.execute();
+        log.info("익명 내부 클래스 이름1={}", template1.getClass());
+
+        AbstractTemplate template2 = new AbstractTemplate() { // 함수를 선언하면서 바로 구현 가능
+
+            @Override
+            protected void call() {
+                log.info("비지니스 로직2 실행");
+            }
+        };
+        template2.execute();
+        log.info("익명 내부 클래스 이름2={}", template2.getClass());
+    }
+
 
 }
